@@ -1,0 +1,94 @@
+digraph {
+	node [shape=box]
+	edge [arrowhead=vee arrowsize=1]
+	S [label=Start shape=oval]
+	0 [label="Get first pure
+fault state
+and
+put into key"]
+	1 [label="key = \"\" & fault_key = \"\""]
+	2 [label="Is this
+fault present?" shape=diamond]
+	3 [label="Print to cout
+that the fault
+is present"]
+	4 [label="Increment the
+frequency of the
+fault"]
+	5 [label="Print to cout
+that a new fault type
+is present"]
+	6 [label="Add new fault
+type to fault
+list with frequency of 1"]
+	7 [label="Fault_key = key"]
+	8 [label="Push fault_key into message bag"]
+	9 [label="More
+faults?" shape=diamond]
+	11 [label="Move to next fault"]
+	12 [label="Is this
+fault present?" shape=diamond]
+	13 [label="Print to cout
+that the fault
+is present"]
+	14 [label="Increment the
+frequency of the
+fault"]
+	15 [label="Print to cout
+that a new fault type
+is present"]
+	16 [label="Add new fault
+type to fault
+list with frequency of 1"]
+	17 [label="Is key C1
+or D1?" shape=diamond]
+	18 [label="Is fault_key
+length < 4?" shape=diamond]
+	19 [label="Fault_key = fault_key + key"]
+	20 [label="Push fault_key into message bag"]
+	21 [label="Is fault_key
+present in
+fault list?" shape=diamond]
+	22 [label="Print to cout that fault_key is present"]
+	23 [label="Increment fault frequency"]
+	24 [label="Print to cout
+that a new fault type
+is present"]
+	25 [label="Add new fault
+type to fault
+list with frequency of 1"]
+	26 [label="Save fault codes"]
+	27 [label="Return message bag"]
+	E [label=End shape=oval]
+	S -> 0
+	0 -> 1
+	1 -> 2
+	2 -> 3 [label=Yes]
+	3 -> 4
+	2 -> 5 [label=No]
+	5 -> 6
+	6 -> 7
+	4 -> 7
+	7 -> 8
+	8 -> 9
+	9 -> 11
+	11 -> 12
+	12 -> 13 [label=Yes]
+	13 -> 14
+	12 -> 15 [label=No]
+	15 -> 16
+	14 -> 17
+	16 -> 17
+	17 -> 18
+	18 -> 19
+	19 -> 20
+	20 -> 21
+	21 -> 22 [label=Yes]
+	22 -> 23
+	21 -> 24 [label=No]
+	24 -> 25
+	23 -> 26
+	25 -> 26
+	26 -> 27
+	27 -> E
+}

@@ -1,0 +1,16 @@
+digraph {
+	graph [splines=polyline]
+	node [shape=box]
+	edge [arrowhead=vee arrowsize=1]
+	S [label=Start shape=oval]
+	0 [label="state
+idle?" shape=diamond style=""]
+	1 [label="Return Infinity"]
+	2 [label="Return toggleTime"]
+	E [label=End shape=oval]
+	S -> 0
+	0 -> 1 [label=Yes]
+	0 -> 2 [label=No]
+	1 -> E
+	2 -> E
+}

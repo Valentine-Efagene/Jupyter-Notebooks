@@ -1,0 +1,12 @@
+digraph {
+	graph [splines=ortho]
+	node [shape=box]
+	edge [arrowhead=vee arrowsize=1]
+	S [label=Start shape=oval]
+	0 [label="Call internal transition function"]
+	1 [label="Call external transition function"]
+	E [label=End shape=oval]
+	S -> 0
+	0 -> 1
+	1 -> E
+}

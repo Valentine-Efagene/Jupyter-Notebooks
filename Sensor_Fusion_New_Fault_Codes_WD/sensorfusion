@@ -1,0 +1,41 @@
+digraph {
+	node [shape=box]
+	edge [arrowhead=vee arrowsize=1]
+	0 [label="Fault Generator"]
+	1 [label="Other Faults"]
+	2 [label="Supervisor (Polling)"]
+	3 [label="All faults
+ processed
+?" shape=diamond]
+	4 [label="Send trigger signal 
+ &
+ increment frequency"]
+	5 [label="Append fault"]
+	6 [label="Does fault
+ exist?" shape=diamond]
+	7 [label="Remove and delay fault
+with lower
+priority"]
+	8 [label="Time
+Out?" shape=diamond]
+	9 [label=end shape=oval]
+	10 [label=start shape=oval]
+	11 [label="Delayed Faults"]
+	2 -> 1
+	0 -> 2 [label="  Possibility
+of fault"]
+	1 -> 5 [label="  Possibility
+of fault"]
+	2 -> 3
+	3 -> 6 [label=Yes]
+	3 -> 5 [label=No]
+	4 -> 8
+	5 -> 6
+	6 -> 4 [label=Yes]
+	6 -> 7 [label=No]
+	7 -> 3
+	8 -> 2 [label=No]
+	8 -> 9 [label=Yes]
+	10 -> 0
+	11 -> 1
+}

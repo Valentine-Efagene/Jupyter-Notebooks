@@ -1,0 +1,44 @@
+digraph {
+	node [shape=box]
+	edge [arrowhead=vee arrowsize=1]
+	S [label=Start shape=oval]
+	0 [label="faults = all available
+fault signals
+in state variable
+
+key = uninitialized"]
+	1 [label="Pop highest priority fault in faults into key"]
+	2 [label="Does key exists
+as a in fault list?" shape=diamond style=""]
+	3 [label="Push numeric fault
+code for key
+into message bag"]
+	4 [label="Any remaining
+fault?" shape=diamond style=""]
+	5 [label="Pop first fault
+key can append
+to form a
+compound fault"]
+	6 [label="Append the popped fault to key"]
+	7 [label="Push the numeric
+code for the popped
+fault into the 
+message bag"]
+	8 [label="Fault
+remaining?" shape=diamond style=""]
+	9 [label="update fault with same name as key in the fault_list"]
+	E [label=End shape=oval]
+	S -> 0
+	0 -> 1
+	1 -> 2
+	2 -> 3
+	3 -> 4
+	4 -> 5 [label=Yes]
+	4 -> 9 [label=No]
+	5 -> 6
+	6 -> 7
+	7 -> 8
+	8 -> 1 [label=Yes]
+	8 -> 9 [label=No]
+	9 -> E
+}

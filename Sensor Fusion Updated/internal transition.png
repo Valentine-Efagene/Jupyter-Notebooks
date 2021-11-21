@@ -1,0 +1,13 @@
+digraph {
+	graph [splines=ortho]
+	node [shape=box]
+	edge [arrowhead=vee arrowsize=1]
+	S [label=Start shape=oval]
+	0 [label="state.idle = true"]
+	1 [label="Reset all fault
+states to false"]
+	E [label=End shape=oval]
+	S -> 0
+	0 -> 1
+	1 -> E
+}

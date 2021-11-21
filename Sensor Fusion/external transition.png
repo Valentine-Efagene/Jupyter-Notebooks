@@ -1,0 +1,17 @@
+digraph {
+	graph [splines=ortho]
+	node [shape=box]
+	edge [arrowhead=vee arrowsize=1]
+	S [label=Start shape=oval]
+	0 [label="state.idle = false"]
+	1 [label="Save only the output of the
+generator of highest priority
+that produced an output
+in corresponding state variables,
+and ignore any other that
+produced an output simultaneously"]
+	E [label=End shape=oval]
+	S -> 0
+	0 -> 1
+	1 -> E
+}
